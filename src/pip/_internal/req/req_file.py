@@ -353,7 +353,7 @@ class RequirementsFileParser(object):
                 elif not SCHEME_RE.search(req_path):
                     # do a join so relative paths work
                     req_path = os.path.join(
-                        os.path.dirname(filename), req_path,
+                        os.path.normpath(os.path.dirname(filename)), req_path,
                     )
 
                 for inner_line in self._parse_and_recurse(
